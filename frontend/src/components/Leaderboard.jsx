@@ -1,18 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { API } from '../utils/api';
 import TopRankerCard from './TopRankerCard';
+import { io } from 'socket.io-client';
 
+const socket = io(import.meta.env.VITE_SOCKET_URL);
 export default function Leaderboard() {
   const [leaderboard, setLeaderboard] = useState([]);
-
-  useEffect(() => {
-    fetchLeaderboard();
-  }, []);
 
   const fetchLeaderboard = async () => {
     const res = await API.get('/claim/leaderboard');
     setLeaderboard(res.data);
   };
+
+  useEffect(() => {
+    fetchLeaderboard();  
+    socket.on('leaderboardUpdate', (data) => {
+      setLeaderboard(data);
+    });
+
+    return () => {
+      socket.off('leaderboardUpdate');
+    };
+  }, []);
+
 
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg mt-8">
