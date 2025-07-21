@@ -3,9 +3,12 @@ const mongoose = require('mongoose');
 const ClaimHistorySchema = new mongoose.Schema({
   userId: { 
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User' },
+    ref: 'User' 
+  },
   pointsClaimed: Number,
-  timestamp: { type: Date, default: Date.now },
+  timestamp: { 
+    type: Date,
+    default: Date.now },
 });
 
 module.exports = mongoose.model('ClaimHistory', ClaimHistorySchema);
