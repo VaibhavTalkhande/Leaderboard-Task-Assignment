@@ -19,6 +19,18 @@ const claimPoints = async (req, res) => {
     });
     await history.save();
 
+    const io = req.app.get('io');
+    const leaderboard = await User.find().sort({ totalPoints: -1 });
+
+    if(io){
+        io.emit('leaderboardUpdate', leaderboard.map((user, index) => ({
+              name: user.name,
+              totalPoints: user.totalPoints,
+              rank: index + 1,
+              _id: user._id
+        })));
+    }
+
     res.json({ user, randomPoints });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -29,6 +41,7 @@ const claimPoints = async (req, res) => {
 const getLeaderboard = async (req, res) => {
   try {
     const users = await User.find().sort({ totalPoints: -1 });
+    if (users.length === 0) return res.json([]);
     const leaderboard = users.map((user, index) => ({
       name: user.name,
       totalPoints: user.totalPoints,
