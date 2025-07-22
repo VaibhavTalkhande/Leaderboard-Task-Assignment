@@ -1,6 +1,5 @@
-import React from 'react'
 
-const AddUser = ({newUser,addUser}) => {
+export default function AddUser({newUser, setNewUser, addUser}){
   return (
     <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full max-w-md mx-auto bg-white rounded-xl shadow-md p-4 mt-4">
         <input
@@ -18,5 +17,3 @@ const AddUser = ({newUser,addUser}) => {
     </div>
   )
 }
-
-export default AddUser
