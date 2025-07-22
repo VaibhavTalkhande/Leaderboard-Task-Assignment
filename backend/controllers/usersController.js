@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const broadcastLeaderboard = require('../utils/broadcastLeaderboard');
 
 // Controller to create a user
 const createUser = async (req, res) => {
@@ -15,6 +16,7 @@ const createUser = async (req, res) => {
 const getAllUsers = async (req, res) => {
   try {
     const users = await User.find();
+    broadcastLeaderboard(req);
     res.json(users);
   } catch (err) {
     res.status(500).json({ error: err.message });
