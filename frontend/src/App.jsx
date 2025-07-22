@@ -3,7 +3,7 @@ import UserSelector from './components/UserSelector';
 import AddUser from './components/AddUser';
 import { Toaster } from 'react-hot-toast';
 import { API } from './utils/api';
-import LeaderBoard from './components/LeaderBoard';
+import Leaderboard from './components/LeaderBoard';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -35,7 +35,7 @@ function App() {
         <div className="w-full flex flex-col mt-6 justify-center items-center">
             <div className="flex flex-col w-full justify-center items-center">
               <UserSelector users={users} selected={selectedUser} setSelected={setSelectedUser} />
-              <LeaderBoard/>
+              <Leaderboard/>
             </div>
         </div>
     </div>

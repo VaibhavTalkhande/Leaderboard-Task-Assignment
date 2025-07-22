@@ -6,7 +6,7 @@ import { FaRankingStar } from "react-icons/fa6";
 
 const socket = io(import.meta.env.VITE_SOCKET_URL);
 
-export default function LeaderBoard() {
+export default function Leaderboard() {
   const [leaderboard, setLeaderboard] = useState([]);
   const [topRankers, setTopRankers] = useState([]);
   const [page, setPage] = useState(1);
