@@ -3,7 +3,7 @@ import UserSelector from './components/UserSelector';
 import AddUser from './components/AddUser';
 import { Toaster } from 'react-hot-toast';
 import { API } from './utils/api';
-import Leaderboard from './components/LeaderBoard';
+import Leaderboard from './components/Leaderboard';
 
 function App() {
   const [users, setUsers] = useState([]);
