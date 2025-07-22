@@ -14,11 +14,15 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server,{
     cors: {
-        origin: '*'
+        origin: process.env.Frontend_URL,
     },
 })
 app.set('io', io);
-app.use(cors());
+app.use(cors(
+    {
+        origin: process.env.Frontend_URL
+    }
+));
 app.use(express.json());
 
 app.use('/api/users',userRoutes);
