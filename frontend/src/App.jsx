@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import UserSelector from './components/UserSelector';
 import AddUser from './components/AddUser';
-import Leaderboard from './components/LeaderBoard';
+import LeaderBoard from './components/LeaderBoard';
 import { Toaster } from 'react-hot-toast';
 import { API } from './utils/api';
 
@@ -35,7 +35,7 @@ function App() {
         <div className="w-full flex flex-col mt-6 justify-center items-center">
             <div className="flex flex-col w-full justify-center items-center">
               <UserSelector users={users} selected={selectedUser} setSelected={setSelectedUser} />
-              <Leaderboard/>
+              <LeaderBoard/>
             </div>
         </div>
     </div>
