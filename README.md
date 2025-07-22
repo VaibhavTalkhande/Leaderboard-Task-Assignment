@@ -14,6 +14,7 @@ https://github.com/user-attachments/assets/ebee3dd0-8074-4943-9f90-01e4f18a4220
 - ✅ MongoDB-based persistent storage with user & claim history collections
 - ✅ Pagination support for fetching users (10 per page)
 - ✅ Toast notification for claimed points
+- ✅ clean ui and responsive
 
 ## 🚀 Tech Stack
 
