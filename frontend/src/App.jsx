@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import UserSelector from './components/UserSelector';
 import AddUser from './components/AddUser';
-import LeaderBoard from './components/LeaderBoard';
 import { Toaster } from 'react-hot-toast';
 import { API } from './utils/api';
+import LeaderBoard from './components/LeaderBoard';
 
 function App() {
   const [users, setUsers] = useState([]);
